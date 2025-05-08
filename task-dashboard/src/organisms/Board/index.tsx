@@ -18,4 +18,5 @@ const Board = ({ tasks }: BoardProps) => {
     </section>
   );
 };
+
 export default Board;
