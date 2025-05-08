@@ -1,27 +1,21 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import styles from "./style.module.css";
-import { Task } from "@/modal/common";
-import { createTask } from "@/utils/api";
+import { useHandler } from "./handler";
+import { ModalProps } from "@/props";
 
-type Props = {
-  onClose: () => void;
-  onAdd: (task: Task) => void;
-};
-
-export default function AddTaskModal({ onClose, onAdd }: Props) {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [status, setStatus] = useState<"To Do" | "In Progress" | "Done">(
-    "To Do"
-  );
-
-  const handleSubmit = async () => {
-    const newTask = { title, description, status };
-    const created = await createTask(newTask);
-    onAdd({ ...newTask, id: created.id });
-    onClose();
-  };
+const AddTaskModal = ({ onClose, onAdd }: ModalProps) => {
+  const {
+    description,
+    handleSubmit,
+    setDescription,
+    setTitle,
+    title,
+    setStatus,
+  } = useHandler({
+    onClose,
+    onAdd,
+  });
 
   return (
     <section className={styles.overlay}>
@@ -60,4 +54,5 @@ export default function AddTaskModal({ onClose, onAdd }: Props) {
       </section>
     </section>
   );
-}
+};
+export default AddTaskModal;

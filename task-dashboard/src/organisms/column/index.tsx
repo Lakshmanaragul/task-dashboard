@@ -1,15 +1,10 @@
 import React from "react";
 import { Droppable } from "@hello-pangea/dnd";
 import styles from "./style.module.css";
-import { Task } from "@/modal/common";
 import TaskCard from "../taskcard";
+import { ColumnProps } from "@/props";
 
-type Props = {
-  status: string;
-  tasks: Task[];
-};
-
-export default function Column({ status, tasks }: Props) {
+const Column = ({ status, tasks }: ColumnProps) => {
   return (
     <section className={styles.column}>
       <h2 className={styles.title}>{status}</h2>
@@ -29,4 +24,6 @@ export default function Column({ status, tasks }: Props) {
       </Droppable>
     </section>
   );
-}
+};
+
+export default Column;
