@@ -4,7 +4,7 @@ import { DragDropContext } from "@hello-pangea/dnd";
 import AddTaskModal from "@/organisms/taskmodal";
 import styles from "./page.module.css";
 import { useHandler } from "./handler";
-import Board from "@/organisms/board";
+import Board from "@/organisms/Board";
 
 const Home = () => {
   const { handleAddTask, handleDragEnd, setShowModal, showModal, tasks } =
