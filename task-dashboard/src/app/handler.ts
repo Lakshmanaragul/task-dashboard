@@ -1,6 +1,6 @@
 "use client";
 import { Task } from "@/modal/common";
-import { fetchTasks } from "@/utils";
+import { fetchTasks, updateTaskStatus } from "@/utils";
 import { useState, useEffect } from "react";
 
 export const useHandler = () => {
@@ -19,15 +19,21 @@ export const useHandler = () => {
     setTasks((prev) => [...prev, task]);
   };
 
-  const handleDragEnd = (result: any) => {
-    const { source, destination } = result;
-    if (!destination) return;
+  const handleDragEnd = async (result: any) => {
+    const { source, destination, draggableId } = result;
+    if (!destination || source.droppableId === destination.droppableId) return;
 
-    const updatedTasks = [...tasks];
-    const movedTask = updatedTasks.find((t) => t.id === +result.draggableId);
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === +draggableId
+          ? { ...task, status: destination.droppableId }
+          : task
+      )
+    );
+
+    const movedTask = tasks.find((task) => task.id === +draggableId);
     if (movedTask) {
-      movedTask.status = destination.droppableId as any;
-      setTasks(updatedTasks);
+      await updateTaskStatus(movedTask.id, destination.droppableId);
     }
   };
 

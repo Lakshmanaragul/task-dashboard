@@ -16,3 +16,13 @@ export const createTask = async (task: any) => {
   const response = await axios.post(API_URL, task);
   return response.data;
 };
+
+export const updateTaskStatus = async (taskId: number, newStatus: string) => {
+  const response = await axios.patch(
+    `https://jsonplaceholder.typicode.com/todos/${taskId}`,
+    {
+      completed: newStatus === "Done",
+    }
+  );
+  return response.data;
+};
