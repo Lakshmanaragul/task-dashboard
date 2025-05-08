@@ -1,14 +1,9 @@
 import React from "react";
 import { Draggable } from "@hello-pangea/dnd";
 import "./style.module.css";
-import { Task } from "@/modal/common";
+import { TaskProps } from "@/props";
 
-type Props = {
-  task: Task;
-  index: number;
-};
-
-export default function TaskCard({ task, index }: Props) {
+const TaskCard = ({ task, index }: TaskProps) => {
   return (
     <Draggable draggableId={String(task.id)} index={index}>
       {(provided) => (
@@ -24,4 +19,6 @@ export default function TaskCard({ task, index }: Props) {
       )}
     </Draggable>
   );
-}
+};
+
+export default TaskCard;

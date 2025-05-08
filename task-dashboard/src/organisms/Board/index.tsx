@@ -1,14 +1,9 @@
 import React from "react";
 import styles from "./style.module.css";
-import { Task } from "@/modal/common";
 import Column from "../column";
+import { BoardProps } from "@/props";
 
-type Props = {
-  tasks: Task[];
-  onDragEnd: any;
-};
-
-export default function Board({ tasks }: Props) {
+const Board = ({ tasks }: BoardProps) => {
   const statuses = ["To Do", "In Progress", "Done"];
 
   return (
@@ -22,4 +17,5 @@ export default function Board({ tasks }: Props) {
       ))}
     </section>
   );
-}
+};
+export default Board;
