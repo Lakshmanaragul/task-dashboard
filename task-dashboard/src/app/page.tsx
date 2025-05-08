@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
 import { DragDropContext } from "@hello-pangea/dnd";
-import Board from "@/organisms/Board";
 import AddTaskModal from "@/organisms/taskmodal";
 import styles from "./page.module.css";
 import { useHandler } from "./handler";
+import Board from "@/organisms/board";
 
 const Home = () => {
   const { handleAddTask, handleDragEnd, setShowModal, showModal, tasks } =
