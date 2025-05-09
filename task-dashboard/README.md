@@ -1,3 +1,34 @@
+# Task Management Dashboard
+
+A responsive Kanban-style task management app built using **Next.js**, **TypeScript**, **CSS Modules**, and **Drag & Drop (DND)**.
+
+# Install Dependencies - npm install
+
+# Run the Development Server - npm run dev
+
+## Features
+
+- View tasks under `To Do`, `In Progress`, and `Done`
+- Add new tasks via a modal form
+- Drag & drop tasks between columns
+- Mock API integration using `https://jsonplaceholder.typicode.com/`
+- CSS Modules for component-level styling
+
+## Tech Stack
+
+- Next.js 14
+- TypeScript
+- @hello-pangea/dnd for drag-and-drop
+- Axios for API calls
+- CSS Modules
+
+## Architecture & Approach
+
+- Monorepo Structure: All components are modular and live inside organisms/, modal/, and utils/.
+- API Integration: All API interactions are abstracted in utils/api.ts.
+- Drag & Drop: Implemented using @hello-pangea/dnd.
+- CSS Modules: Used per component/page for scoped styling.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
