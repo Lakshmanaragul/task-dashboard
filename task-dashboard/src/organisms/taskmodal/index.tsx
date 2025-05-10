@@ -11,6 +11,7 @@ const AddTaskModal = ({ onClose, onAdd }: ModalProps) => {
     setDescription,
     setTitle,
     title,
+    status,
     setStatus,
   } = useHandler({
     onClose,
